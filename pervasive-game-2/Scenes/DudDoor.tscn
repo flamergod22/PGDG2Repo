@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://b7vqxjsgorkkn"]
+[gd_scene load_steps=15 format=4 uid="uid://774mmtqo8th6"]
 
-[ext_resource type="Script" uid="uid://bipet18rvl2sc" path="res://Scripts/door.gd" id="1_38ogf"]
+[ext_resource type="Script" uid="uid://c832abac7hn6d" path="res://Scripts/dud_door.gd" id="1_xe8pq"]
+[ext_resource type="AudioStream" uid="uid://c6fphhipvfcbe" path="res://Assets/Placeholder Assets/Sounds/150568__orginaljun__door-click-cant-open.mp3" id="2_p5mf0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_38ogf"]
 size = Vector3(1.91296, 2.76852, 0.843506)
@@ -194,7 +195,7 @@ data = PackedVector3Array(0.5, 0, -0.1, 0.5, 0, 0.1, 1, 0, -0.1, 0.5, 0, 0.1, 1,
 data = PackedVector3Array(1, 1.1, 0, 1, 1.1, 0.1, 0, 1.1, 0, 1, 1.1, 0.1, 0, 1.1, 0.1, 0, 1.1, 0, 1, -1.05, 0.1, 0, -1.05, 0.1, 1, 1.1, 0.1, 0, -1.05, 0.1, 0, 1.1, 0.1, 1, 1.1, 0.1, 0, -1.05, 0.1, 0, -1.05, 0, 0, 1.1, 0.1, 0, -1.05, 0, 0, 1.1, 0, 0, 1.1, 0.1, 0, -1.05, 0, 0, -1.05, 0.1, 1, -1.05, 0, 0, -1.05, 0.1, 1, -1.05, 0.1, 1, -1.05, 0, 1, -1.05, 0, 1, -1.05, 0.1, 1, 1.1, 0, 1, -1.05, 0.1, 1, 1.1, 0.1, 1, 1.1, 0, 0, -1.05, 0, 1, -1.05, 0, 0, 1.1, 0, 1, -1.05, 0, 1, 1.1, 0, 0, 1.1, 0)
 
 [node name="Door" type="Area3D"]
-script = ExtResource("1_38ogf")
+script = ExtResource("1_xe8pq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00970459, 1.40699, 0.0782471)
@@ -223,5 +224,10 @@ shape = SubResource("ConcavePolygonShape3D_38ogf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.1, -0.1)
 shape = SubResource("ConcavePolygonShape3D_mw28t")
 
+[node name="DudDoorNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_p5mf0")
+volume_db = 1.0
+
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
+[connection signal="finished" from="DudDoorNoise" to="." method="_on_audio_stream_player_finished"]
