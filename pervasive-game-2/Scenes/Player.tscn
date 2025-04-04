@@ -22,3 +22,5 @@ shape = SubResource("ConvexPolygonShape3D_gntrk")
 
 [node name="Camera3D" type="Camera3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[connection signal="child_entered_tree" from="CollisionShape3D" to="head/Camera3D" method="_on_collision_shape_3d_child_entered_tree"]

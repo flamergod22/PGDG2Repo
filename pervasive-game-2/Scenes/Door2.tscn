@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://b7vqxjsgorkkn"]
+[gd_scene load_steps=19 format=4 uid="uid://bv8ptdqytfx0l"]
 
-[ext_resource type="Script" uid="uid://bipet18rvl2sc" path="res://Scripts/door.gd" id="1_38ogf"]
+[ext_resource type="Script" uid="uid://dh27fl4jf2g6a" path="res://Scripts/door2.gd" id="1_toj1x"]
+[ext_resource type="Texture2D" uid="uid://bpn5m17rshmrm" path="res://Assets/Placeholder Assets/2D/Flashback Placeholder 2.png" id="2_toj1x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_38ogf"]
 size = Vector3(1.91296, 2.76852, 0.843506)
@@ -193,8 +194,62 @@ data = PackedVector3Array(0.5, 0, -0.1, 0.5, 0, 0.1, 1, 0, -0.1, 0.5, 0, 0.1, 1,
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mw28t"]
 data = PackedVector3Array(1, 1.1, 0, 1, 1.1, 0.1, 0, 1.1, 0, 1, 1.1, 0.1, 0, 1.1, 0.1, 0, 1.1, 0, 1, -1.05, 0.1, 0, -1.05, 0.1, 1, 1.1, 0.1, 0, -1.05, 0.1, 0, 1.1, 0.1, 1, 1.1, 0.1, 0, -1.05, 0.1, 0, -1.05, 0, 0, 1.1, 0.1, 0, -1.05, 0, 0, 1.1, 0, 0, 1.1, 0.1, 0, -1.05, 0, 0, -1.05, 0.1, 1, -1.05, 0, 0, -1.05, 0.1, 1, -1.05, 0.1, 1, -1.05, 0, 1, -1.05, 0, 1, -1.05, 0.1, 1, 1.1, 0, 1, -1.05, 0.1, 1, 1.1, 0.1, 1, 1.1, 0, 0, -1.05, 0, 1, -1.05, 0, 0, 1.1, 0, 1, -1.05, 0, 1, 1.1, 0, 0, 1.1, 0)
 
-[node name="Door" type="Area3D"]
-script = ExtResource("1_38ogf")
+[sub_resource type="Animation" id="Animation_nn08x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ixxa"]
+resource_name = "flashback1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 1.95, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_toj1x"]
+resource_name = "flashback2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.95, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_52ee3"]
+_data = {
+&"RESET": SubResource("Animation_nn08x"),
+&"flashback1": SubResource("Animation_5ixxa"),
+&"flashback2": SubResource("Animation_toj1x")
+}
+
+[node name="Door" type="Area3D" groups=["player"]]
+script = ExtResource("1_toj1x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00970459, 1.40699, 0.0782471)
@@ -222,6 +277,18 @@ shape = SubResource("ConcavePolygonShape3D_38ogf")
 [node name="DoorProper" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.1, -0.1)
 shape = SubResource("ConcavePolygonShape3D_mw28t")
+
+[node name="FlashbackText2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1169.0
+offset_bottom = 662.0
+texture = ExtResource("2_toj1x")
+
+[node name="FlashbackPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../FlashbackText2")
+libraries = {
+&"": SubResource("AnimationLibrary_52ee3")
+}
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
