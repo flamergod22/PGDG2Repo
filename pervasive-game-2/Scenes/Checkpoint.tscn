@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd1x6ooq0qlni"]
+
+[ext_resource type="Script" uid="uid://c10gq7cug6iq1" path="res://Scripts/checkpoint.gd" id="1_wp6dl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rvdls"]
+size = Vector3(6.38477, 3.3877, 1)
+
+[node name="Checkpoint" type="Area3D" groups=["player"]]
+script = ExtResource("1_wp6dl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175781, 1.19385, 0)
+shape = SubResource("BoxShape3D_rvdls")
+
+[node name="RespawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.97265)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

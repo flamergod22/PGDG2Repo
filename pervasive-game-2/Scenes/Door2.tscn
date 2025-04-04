@@ -248,7 +248,7 @@ _data = {
 &"flashback2": SubResource("Animation_toj1x")
 }
 
-[node name="Door" type="Area3D"]
+[node name="Door" type="Area3D" groups=["player"]]
 script = ExtResource("1_toj1x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
