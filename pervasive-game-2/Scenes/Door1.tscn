@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://b7vqxjsgorkkn"]
+[gd_scene load_steps=18 format=4 uid="uid://b7vqxjsgorkkn"]
 
 [ext_resource type="Script" uid="uid://bipet18rvl2sc" path="res://Scripts/door.gd" id="1_38ogf"]
+[ext_resource type="Texture2D" uid="uid://l3by4lhp3c82" path="res://Assets/Placeholder Assets/2D/Flashback Placeholder.png" id="2_olkv1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_38ogf"]
 size = Vector3(1.91296, 2.76852, 0.843506)
@@ -193,6 +194,43 @@ data = PackedVector3Array(0.5, 0, -0.1, 0.5, 0, 0.1, 1, 0, -0.1, 0.5, 0, 0.1, 1,
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mw28t"]
 data = PackedVector3Array(1, 1.1, 0, 1, 1.1, 0.1, 0, 1.1, 0, 1, 1.1, 0.1, 0, 1.1, 0.1, 0, 1.1, 0, 1, -1.05, 0.1, 0, -1.05, 0.1, 1, 1.1, 0.1, 0, -1.05, 0.1, 0, 1.1, 0.1, 1, 1.1, 0.1, 0, -1.05, 0.1, 0, -1.05, 0, 0, 1.1, 0.1, 0, -1.05, 0, 0, 1.1, 0, 0, 1.1, 0.1, 0, -1.05, 0, 0, -1.05, 0.1, 1, -1.05, 0, 0, -1.05, 0.1, 1, -1.05, 0.1, 1, -1.05, 0, 1, -1.05, 0, 1, -1.05, 0.1, 1, 1.1, 0, 1, -1.05, 0.1, 1, 1.1, 0.1, 1, 1.1, 0, 0, -1.05, 0, 1, -1.05, 0, 0, 1.1, 0, 1, -1.05, 0, 1, 1.1, 0, 0, 1.1, 0)
 
+[sub_resource type="Animation" id="Animation_nn08x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ixxa"]
+resource_name = "flashback1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 1.95, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_52ee3"]
+_data = {
+&"RESET": SubResource("Animation_nn08x"),
+&"flashback1": SubResource("Animation_5ixxa")
+}
+
 [node name="Door" type="Area3D"]
 script = ExtResource("1_38ogf")
 
@@ -222,6 +260,18 @@ shape = SubResource("ConcavePolygonShape3D_38ogf")
 [node name="DoorProper" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.1, -0.1)
 shape = SubResource("ConcavePolygonShape3D_mw28t")
+
+[node name="FlashbackText1" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1169.0
+offset_bottom = 662.0
+texture = ExtResource("2_olkv1")
+
+[node name="FlashbackPlayer1" type="AnimationPlayer" parent="."]
+root_node = NodePath("../FlashbackText1")
+libraries = {
+&"": SubResource("AnimationLibrary_52ee3")
+}
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

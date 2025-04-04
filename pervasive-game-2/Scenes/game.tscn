@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnfbf4hrl0f5h"]
+[gd_scene load_steps=9 format=3 uid="uid://cnfbf4hrl0f5h"]
 
 [ext_resource type="PackedScene" uid="uid://b5s6yaxxwfxbn" path="res://Scenes/Player.tscn" id="1_ebmjs"]
-[ext_resource type="PackedScene" uid="uid://b7vqxjsgorkkn" path="res://Scenes/Door.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://b7vqxjsgorkkn" path="res://Scenes/Door1.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://774mmtqo8th6" path="res://Scenes/DudDoor.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://bv8ptdqytfx0l" path="res://Scenes/Door2.tscn" id="4_wowpa"]
+[ext_resource type="PackedScene" uid="uid://d0lw1vcmrckvo" path="res://Scenes/Door3.tscn" id="5_i6g32"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2poj3"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -29,7 +31,7 @@ environment = SubResource("Environment_qxrlw")
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_ebmjs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0731683, 0.0636697, -0.0643988)
 
-[node name="Door" parent="." groups=["player"] instance=ExtResource("2_qxrlw")]
+[node name="Door" parent="." groups=["Door1", "player"] instance=ExtResource("2_qxrlw")]
 transform = Transform3D(1.97, 0, 0, 0, 1.97, 0, 0, 0, 1.97, -6.3423, 0.00100064, -5.20452)
 
 [node name="Ground" type="CSGBox3D" parent="."]
@@ -74,3 +76,9 @@ size = Vector3(39.447, 13.5065, 0.770777)
 
 [node name="Door2" parent="." instance=ExtResource("3_wrm1d")]
 transform = Transform3D(1.885, 0, 0, 0, 1.885, 0, 0, 0, 1.885, 0.421618, 0.00100017, -4.38339)
+
+[node name="Door3" parent="." instance=ExtResource("4_wowpa")]
+transform = Transform3D(2.667, 0, 0, 0, 2.667, 0, 0, 0, 2.667, -5.62393, 0.000999689, -19.7162)
+
+[node name="Door4" parent="." instance=ExtResource("5_i6g32")]
+transform = Transform3D(3.785, 0, 0, 0, 3.785, 0, 0, 0, 3.785, -5.77937, 0.000999689, -39.0303)
