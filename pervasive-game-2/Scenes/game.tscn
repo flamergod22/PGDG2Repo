@@ -36,14 +36,15 @@ shadow_enabled = true
 environment = SubResource("Environment_qxrlw")
 
 [node name="player" parent="." instance=ExtResource("1_ebmjs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0731683, 0.0636697, -0.0643988)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01752, 0.0636697, -0.0643988)
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0615692, 0.000499964, -40.1919)
 use_collision = true
 size = Vector3(32.1064, 0.001, 96.4081)
 
-[node name="ROOM2" parent="." instance=ExtResource("9_h4fw4")]
+[node name="R2" parent="." instance=ExtResource("9_h4fw4")]
+transform = Transform3D(-2.66902e-06, 0, 61.06, 0, 61.06, 0, -61.06, 0, -2.66902e-06, 0.0655856, 0.0058708, -28.7482)
 
 [node name="R2_DD1" parent="." instance=ExtResource("3_wrm1d")]
 transform = Transform3D(2.855, 0, 0, 0, 2.855, 0, 0, 0, 2.855, 0.0660981, 0.001, -21.121)
@@ -61,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.991, 0.007, -21.154)
 transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, 2.528, 0.001, -20.9)
 
 [node name="Deathzone1" parent="." instance=ExtResource("6_1l0tm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.149, 0, -4.306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4489, 0, -8.52071)
 
 [node name="Door1" parent="." groups=["Door1"] instance=ExtResource("2_qxrlw")]
 transform = Transform3D(1.97, 0, 0, 0, 1.97, 0, 0, 0, 1.97, -6.3423, 0.00100064, -5.20452)
@@ -74,6 +75,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.605, 0.001, -8.865)
 
 [node name="Door3" parent="." instance=ExtResource("5_i6g32")]
 transform = Transform3D(3.785, 0, 0, 0, 3.785, 0, 0, 0, 3.785, -5.77937, 0.000999689, -39.0303)
-
-[node name="Node3D" parent="." instance=ExtResource("9_h4fw4")]
-transform = Transform3D(-2.66902e-06, 0, 61.06, 0, 61.06, 0, -61.06, 0, -2.66902e-06, 0.0655856, 0.0058708, -28.7482)
