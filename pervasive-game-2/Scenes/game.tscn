@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnfbf4hrl0f5h"]
+[gd_scene load_steps=14 format=3 uid="uid://cnfbf4hrl0f5h"]
 
 [ext_resource type="PackedScene" uid="uid://b5s6yaxxwfxbn" path="res://Scenes/Player.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://b7vqxjsgorkkn" path="res://Scenes/Door1.tscn" id="2_qxrlw"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dm4as4dirx7ui" path="res://Scripts/checkpoint_manager.gd" id="7_v158k"]
 [ext_resource type="PackedScene" uid="uid://bd1x6ooq0qlni" path="res://Scenes/Checkpoint.tscn" id="8_v158k"]
 [ext_resource type="PackedScene" uid="uid://cmqc4bpveht7w" path="res://Scenes/Room2.tscn" id="9_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://blatmv2bmb1bt" path="res://Scenes/Room1.tscn" id="10_ldgsr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2poj3"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -36,42 +37,57 @@ shadow_enabled = true
 environment = SubResource("Environment_qxrlw")
 
 [node name="player" parent="." instance=ExtResource("1_ebmjs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01752, 0.0636697, -0.0643988)
+transform = Transform3D(1.78, 0, 0, 0, 1.78, 0, 0, 0, 1.78, 0.01752, 0.0636697, -0.0643988)
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0615692, 0.000499964, -40.1919)
 use_collision = true
 size = Vector3(32.1064, 0.001, 96.4081)
 
+[node name="R1_Deathzone" parent="." instance=ExtResource("6_1l0tm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56448, 0.190059, -16.5108)
+
+[node name="R1_DOOR" parent="." groups=["Door1"] instance=ExtResource("2_qxrlw")]
+transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, -4.87099, 0.00100064, -16.9468)
+
+[node name="R1_Checkpoint" parent="." instance=ExtResource("8_v158k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31611, 0.000998736, -17.0928)
+
+[node name="R1_DD1" parent="." instance=ExtResource("3_wrm1d")]
+transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, 0.0260084, 0.001, -16.9009)
+
+[node name="R1_DD2" parent="." instance=ExtResource("3_wrm1d")]
+transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, 4.92597, 0.001, -16.9009)
+
+[node name="R1" parent="." instance=ExtResource("10_ldgsr")]
+transform = Transform3D(-2.66902e-06, 0, -61.06, 0, 61.06, 0, 61.06, 0, -2.66902e-06, 0.00307441, 0.12917, -9.62715)
+
 [node name="R2" parent="." instance=ExtResource("9_h4fw4")]
-transform = Transform3D(-2.66902e-06, 0, 61.06, 0, 61.06, 0, -61.06, 0, -2.66902e-06, 0.0655856, 0.0058708, -28.7482)
+transform = Transform3D(-2.66902e-06, 0, 61.06, 0, 61.06, 0, -61.06, 0, -2.66902e-06, 0.0655856, 0.0058708, -31.8911)
 
-[node name="R2_DD1" parent="." instance=ExtResource("3_wrm1d")]
-transform = Transform3D(2.855, 0, 0, 0, 2.855, 0, 0, 0, 2.855, 0.0660981, 0.001, -21.121)
+[node name="R12_DD1" parent="." instance=ExtResource("3_wrm1d")]
+transform = Transform3D(2.855, 0, 0, 0, 2.855, 0, 0, 0, 2.855, 0.0660981, 0.001, -24.2639)
 
-[node name="R2_DD2" parent="." instance=ExtResource("3_wrm1d")]
-transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, 4.90408, 0.001, -21.121)
+[node name="R12_DD2" parent="." instance=ExtResource("3_wrm1d")]
+transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, 4.90408, 0.001, -24.2639)
 
 [node name="R2_DOOR" parent="." instance=ExtResource("4_wowpa")]
-transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, -4.844, 0.001, -21.121)
+transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, 0.084904, -0.114257, -39.239)
 
 [node name="R2_Checkpoint2" parent="." instance=ExtResource("8_v158k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.991, 0.007, -21.154)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0256796, 0.007, -39.3234)
 
-[node name="R2_Deathzone" parent="." instance=ExtResource("6_1l0tm")]
-transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, 2.528, 0.001, -20.9)
+[node name="R2_DD2" parent="." instance=ExtResource("3_wrm1d")]
+transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, 5.18338, 0, -38.8753)
 
-[node name="Deathzone1" parent="." instance=ExtResource("6_1l0tm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4489, 0, -8.52071)
+[node name="R2_DD1" parent="." instance=ExtResource("3_wrm1d")]
+transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, -4.81187, 0, -38.8819)
 
-[node name="Door1" parent="." groups=["Door1"] instance=ExtResource("2_qxrlw")]
-transform = Transform3D(1.97, 0, 0, 0, 1.97, 0, 0, 0, 1.97, -6.3423, 0.00100064, -5.20452)
+[node name="R2_Deathz2" parent="." instance=ExtResource("6_1l0tm")]
+transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, -4.74, 2.293, -38.6569)
 
-[node name="Checkpoint1" parent="." instance=ExtResource("8_v158k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.78742, 0.000998736, -5.77091)
-
-[node name="Ddoor2" parent="." instance=ExtResource("3_wrm1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.605, 0.001, -8.865)
+[node name="R2_Deathz1" parent="." instance=ExtResource("6_1l0tm")]
+transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, 5.243, 2.29314, -38.6793)
 
 [node name="Door3" parent="." instance=ExtResource("5_i6g32")]
-transform = Transform3D(3.785, 0, 0, 0, 3.785, 0, 0, 0, 3.785, -5.77937, 0.000999689, -39.0303)
+transform = Transform3D(3.785, 0, 0, 0, 3.785, 0, 0, 0, 3.785, -52.8437, 0.000999689, -39.0303)

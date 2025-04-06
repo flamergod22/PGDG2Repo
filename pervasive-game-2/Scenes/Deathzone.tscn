@@ -11,5 +11,6 @@ script = ExtResource("1_qebpr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2.77, 0, 0, 0, 1, 0, 0, 0, 1, -0.130951, 0, 0)
 shape = SubResource("BoxShape3D_jt7ma")
+debug_color = Color(0.747965, 0, 0.244571, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
