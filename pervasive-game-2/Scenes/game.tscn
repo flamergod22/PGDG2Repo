@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cnfbf4hrl0f5h"]
+[gd_scene load_steps=19 format=3 uid="uid://cnfbf4hrl0f5h"]
 
 [ext_resource type="PackedScene" uid="uid://b5s6yaxxwfxbn" path="res://Scenes/Player.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://b7vqxjsgorkkn" path="res://Scenes/Door1.tscn" id="2_qxrlw"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b401s5ee5ory8" path="res://Scenes/Spawn.tscn" id="11_rku1e"]
 [ext_resource type="PackedScene" uid="uid://d7tjs6xuhub4" path="res://Scenes/corridor.tscn" id="12_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://cxonoqwx434ch" path="res://Scenes/corridor2.tscn" id="13_rfjv2"]
+[ext_resource type="PackedScene" uid="uid://5iiesxxyrkqr" path="res://Scenes/Room3.tscn" id="14_1phco"]
+[ext_resource type="PackedScene" uid="uid://biqlkpuj3v22x" path="res://Scenes/Playroom DD.tscn" id="15_nb51f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2poj3"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -48,28 +50,28 @@ use_collision = true
 size = Vector3(32.1064, 0.001, 96.4081)
 
 [node name="R1_Deathzone" parent="." instance=ExtResource("6_1l0tm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56448, 0.190059, -16.5108)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.276, 0.190059, -16.5108)
 
 [node name="R1_DOOR" parent="." groups=["Door1"] instance=ExtResource("2_qxrlw")]
-transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, -4.87099, 0.00100064, -16.9468)
+transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, 4.83186, 0.00100064, -16.9468)
 
 [node name="R1_Checkpoint" parent="." instance=ExtResource("8_v158k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31611, 0.000998736, -17.0928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.38674, 0.000998736, -17.0928)
 
 [node name="R1_DD1" parent="." instance=ExtResource("3_wrm1d")]
 transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, 0.0260084, 0.001, -16.9009)
 
 [node name="R1_DD2" parent="." instance=ExtResource("3_wrm1d")]
-transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, 4.92597, 0.001, -16.9009)
+transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, -4.82702, 0.001, -16.9009)
 
 [node name="R1" parent="." instance=ExtResource("10_ldgsr")]
 transform = Transform3D(-2.66902e-06, 0, -61.06, 0, 61.06, 0, 61.06, 0, -2.66902e-06, 0.00307441, 0.12917, -9.62715)
 
 [node name="R12_DD1" parent="." instance=ExtResource("3_wrm1d")]
-transform = Transform3D(2.855, 0, 0, 0, 2.855, 0, 0, 0, 2.855, 0.0660981, 0.001, -21.8701)
+transform = Transform3D(2.855, 0, 0, 0, 2.855, 0, 0, 0, 2.855, -4.72222, 0.001, -21.8701)
 
 [node name="R12_DD2" parent="." instance=ExtResource("3_wrm1d")]
-transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, 4.90408, 0.001, -21.8701)
+transform = Transform3D(2.85, 0, 0, 0, 2.85, 0, 0, 0, 2.85, 0.115758, 0.001, -21.8701)
 
 [node name="R2" parent="." instance=ExtResource("9_h4fw4")]
 transform = Transform3D(-2.66902e-06, 0, 61.06, 0, 61.06, 0, -61.06, 0, -2.66902e-06, 0.0655856, 0.0058708, -29.2653)
@@ -99,7 +101,7 @@ transform = Transform3D(3.785, 0, 0, 0, 3.785, 0, 0, 0, 3.785, -52.8437, 0.00099
 transform = Transform3D(-7.38723e-08, 0, -1.69, 0, 1.69, 0, 1.69, 0, -7.38723e-08, -0.00203711, 0.128751, 0.185304)
 
 [node name="Corridor 1-2" parent="." instance=ExtResource("12_rfjv2")]
-transform = Transform3D(-7.38723e-08, 0, -1.69, 0, 1.69, 0, 1.69, 0, -7.38723e-08, -4.82207, 0.128752, -19.4465)
+transform = Transform3D(-7.38723e-08, 0, -1.69, 0, 1.69, 0, 1.69, 0, -7.38723e-08, 4.83914, 0.128752, -19.4465)
 
 [node name="Corridor 2-3" parent="." instance=ExtResource("13_rfjv2")]
 transform = Transform3D(-7.38723e-08, 0, -1.69, 0, 1.69, 0, 1.69, 0, -7.38723e-08, 0.0890064, 0.0941697, -38.8604)
@@ -109,3 +111,12 @@ transform = Transform3D(-7.38723e-08, 0, -1.69, 0, 1.69, 0, 1.69, 0, -7.38723e-0
 
 [node name="CorridorD2" parent="." instance=ExtResource("13_rfjv2")]
 transform = Transform3D(-7.38723e-08, 0, -1.69, 0, 1.69, 0, 1.69, 0, -7.38723e-08, 5.22891, 0.0941697, -38.7307)
+
+[node name="Room3" parent="." instance=ExtResource("14_1phco")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.180812, 3.70568, -49.4743)
+
+[node name="R3_DD2" parent="." instance=ExtResource("15_nb51f")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 3.98486, 0.0010004, -41.3134)
+
+[node name="R23_DD1" parent="." instance=ExtResource("15_nb51f")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -3.52578, 0.0010004, -41.3134)
