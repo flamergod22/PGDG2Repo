@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5s6yaxxwfxbn"]
 
-[ext_resource type="Script" uid="uid://bopxbc05qd0ch" path="res://Scripts/Player/character_body_3d.gd" id="1_rpqav"]
+[ext_resource type="Script" uid="uid://cye4v5q68w8e3" path="res://Scripts/Player/character_body_3dFIX.gd" id="1_rpqav"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kyqiw"]
 
@@ -15,12 +15,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_kyqiw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, 0)
 shape = SubResource("ConvexPolygonShape3D_gntrk")
 
-[node name="head" type="Node3D" parent="."]
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.08877, 0)
 
-[node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-
-[connection signal="child_entered_tree" from="CollisionShape3D" to="head/Camera3D" method="_on_collision_shape_3d_child_entered_tree"]
+[connection signal="child_entered_tree" from="CollisionShape3D" to="MainCamera" method="_on_collision_shape_3d_child_entered_tree"]
