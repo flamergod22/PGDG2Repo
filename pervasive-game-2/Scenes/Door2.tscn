@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://bv8ptdqytfx0l"]
+[gd_scene load_steps=13 format=4 uid="uid://bv8ptdqytfx0l"]
 
 [ext_resource type="Script" uid="uid://dh27fl4jf2g6a" path="res://Scripts/door2.gd" id="1_toj1x"]
-[ext_resource type="VideoStream" uid="uid://mfnwklob24h4" path="res://Assets/Original Assets/Flashbacks 2D/Flashback 2 - No Sound.ogv" id="3_o0iou"]
+[ext_resource type="VideoStream" uid="uid://d16cm3q34rvs1" path="res://Assets/Original Assets/Flashbacks 2D/Final 2.ogv" id="2_toj1x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_38ogf"]
 size = Vector3(1.13559, 2.76852, 0.843506)
@@ -43,6 +43,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hqn4t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_toj1x"]
+albedo_color = Color(0.223529, 0.0784314, 0.854902, 1)
 
 [sub_resource type="Animation" id="Animation_mw28t"]
 resource_name = "Door_Closed"
@@ -170,6 +173,7 @@ shape = SubResource("BoxShape3D_38ogf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.1, -0.1)
 mesh = SubResource("ArrayMesh_2myhf")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_toj1x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -185,7 +189,7 @@ shape = SubResource("ConcavePolygonShape3D_mw28t")
 [node name="cutscene2" type="VideoStreamPlayer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-stream = ExtResource("3_o0iou")
+stream = ExtResource("2_toj1x")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
